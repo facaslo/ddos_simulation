@@ -1,0 +1,13 @@
+services:
+  web_server:
+    build: "./Web server/"
+    ports:
+      - "3000:3000"
+    container_name: web_server_ddos
+    env_file:
+      - 'variables.env'
+  normal_client:
+    build: "./Normal client"
+    container_name: normal_client_ddos
+    env_file:
+      - 'variables.env'
