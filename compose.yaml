@@ -6,8 +6,21 @@ services:
     container_name: web_server_ddos
     env_file:
       - 'variables.env'
+    networks:
+      ddos_network:
+        ipv4_address: 10.9.0.2
   normal_client:
     build: "./Normal client"
     container_name: normal_client_ddos
     env_file:
       - 'variables.env'
+    networks:
+      ddos_network:
+        ipv4_address: 10.9.0.3   
+
+networks:
+  ddos_network:
+    name: ddos_network
+    ipam:
+      config:
+        - subnet: 10.9.0.0/24

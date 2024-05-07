@@ -2,11 +2,11 @@ const express = require("express")
 const app = express()
 
 app.get("/" , (req,res)=>{
-  res.send("Welcome to this web server!")
+  res.send("Welcome to this web server!\n")
 })
 
-const port = 3000
+const port = process.env.SERVER_PORT || 3000
 
-app.listen(port , process.env.SERVER_IP , ()=>{
-  console.log(`Listening on port ${process.env.SERVER_PORT}`)
+app.listen(port, ()=>{
+  console.log(`Listening on port ${port}`)
 })
